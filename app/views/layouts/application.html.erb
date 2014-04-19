@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyWolfPackGuide</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if !flash[:error].nil? -%>
+    <p class='error'><%=h flash[:error] %></p>
+<% end -%>
+<% if !flash[:notice].nil? -%>
+    <p class='notice'><%=h flash[:notice] %></p>
+<% end -%>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<h1>Edit Profile Page</h1>
+<%= form_for(@User_edit, :url=>{:action => 'updateuser',:id=>@User_edit.id}, :method => :POST) do |f| %>
+
+    <%= f.label :name %>
+    <%= text_field_tag :name, @User_edit.user_name %>  <br>
+
+    <%= f.label :password %>
+    <%= password_field_tag :password , @User_edit.pwd %>     <br>
+    <%= f.submit "Save changes" %>
+<% end %>

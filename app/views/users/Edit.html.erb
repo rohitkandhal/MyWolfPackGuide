@@ -1,0 +1,17 @@
+<h1>Edit Calendar Detail</h1>
+    <%= form_for(@book, :url=>{:action => 'update',:id=>@book.id, :id1=>@book.category_id}, :method => :POST) do |f| %>
+
+        <%= f.label :name %>
+        <%= text_field_tag :name, @book.name %>  <br>
+
+        <%= f.label :Calid %>
+        <%= text_field_tag :Calid , @book.Calid %>     <br>
+        <% te=@book.category_id %>
+        <% @val=Category.find(te) %>
+        <%= f.label :category %>
+        <%= text_field_tag :category,  @val.name %>    <br>
+
+        <%= f.submit "Save changes" %>
+    <% end %>
+
+

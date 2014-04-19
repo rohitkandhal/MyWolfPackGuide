@@ -1,0 +1,10 @@
+<h1>Home Page</h1>
+<li><%= link_to "Edit Profile" ,'users/edituser'%></li>
+<p><%- for calendar in @cal %>
+<%- events=calendar.events %>
+	<%- for event in events %>	
+	<%= event.title %>
+	<%= event.id %><br></br>
+	<%- end %>
+<%- end %>
+</p>

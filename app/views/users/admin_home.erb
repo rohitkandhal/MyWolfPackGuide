@@ -1,0 +1,58 @@
+<h1>Admin Home</h1>
+
+
+<h3>Calendar Details</h3>
+<table border="1" title="Calendar Details">
+<tr>
+  <td>ID</td>
+  <td>Calendar Name</td>
+  <td>Calendar ID</td>
+  <td>Category</td>
+  <td>Action 1</td>
+  <td>Action 2</td>
+</tr>
+<% @cal.each do |car| %>
+    <tr>
+      <td><%= car.id %></td>
+      <td><%= car.name %></td>
+      <td><%= car.Calid %></td>
+      <% val=Category.find(car.category_id) %>
+      <td><%= val.name%></td>
+      <td><%= link_to 'Delete', {:action => 'Delete', :id => car.id}, :confirm => "Are you sure you want to delete this Calendar?"%></td>
+      <td><%= link_to 'Edit', {:action => 'Edit', :id => car.id} %></td>
+    </tr>
+<% end %>
+</table>
+<%= form_tag ('/users/Submit') do  %>
+
+    <%= label_tag :name %>
+    <%= text_field_tag :name1, 'Calendar Name' %>  <br>
+    <%= label_tag :Calid %>
+    <%= text_field_tag :Calid1 , 'Calendar ID' %>     <br>
+    <%= label_tag :category %>
+    <%= text_field_tag :category1,  'Category' %>    <br>
+
+    <%= submit_tag "Save changes" %>
+<% end %>
+<h3>Category Details</h3>
+<table border="1" title="Category Details">
+  <tr>
+    <td>ID</td>
+    <td>Category</td>
+    <td>Action 1</td>
+    <td>Action 2</td>
+  </tr>
+  <% @cat.each do |cas| %>
+      <tr>
+        <td><%= cas.id %></td>
+        <td><%= cas.name %></td>
+        <td><%= link_to 'Delete', {:action => 'delete', :id => cas.id}, :confirm => "Are you sure you want to delete this Calendar?"%></td>
+        <td><%= link_to 'Edit', {:action => 'edit', :id => cas.id} %></td>
+      </tr>
+  <% end %>
+</table>
+<%= form_tag ('/users/Savec') do  %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name1, 'Category Name' %>  <br>
+    <%= submit_tag "Save changes" %>
+<% end %>
