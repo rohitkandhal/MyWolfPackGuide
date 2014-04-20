@@ -4,6 +4,36 @@ require 'gcal4ruby'
 
 
 class UsersController < ApplicationController
+
+  before_action :require_login , :except => [:login]
+  before_action :login_check , :only => [:login]
+
+  private
+
+  def login_check
+    puts "Coming to login check"
+  end
+  
+  def require_login
+    puts "Goes into require_login"
+    if(session[:uid])
+      puts "was nil"
+      return nil
+    else
+      puts "was not null"
+      return true
+    end
+
+  end
+
+  public 
+
+  def logout
+    session[:uid]=nil
+    # dump all the data     
+    redirect_to '/'
+  end
+
 	def login		
 		redirect_path=nil
 		if request.post?			
@@ -34,8 +64,10 @@ class UsersController < ApplicationController
 				# redirect to home_page with session [:name]
 				if(@user_entry.user_type=="A")
 					#redirect to admin home page
+          session[:uid]=user_entry.id
 					redirect_to '/admin_home'
 				else
+          session[:uid]=user_entry.id
 					session[:user_name]=@user_entry.user_name
 					redirect_to '/home_page'
 				end				
@@ -93,7 +125,7 @@ class UsersController < ApplicationController
   end
 
   def edituser
-    @User_edit=User.first
+    #@User_edit=User.first
 
   end
   def updateuser
