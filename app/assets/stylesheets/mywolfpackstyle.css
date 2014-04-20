@@ -217,13 +217,13 @@ form:after {
 	border: 1px solid #D69E31;
 	color: #85592e;
 	cursor: pointer;
-	float: left;
 	font: bold 15px Helvetica, Arial, sans-serif;
-	height: 35px;
-	margin: 20px 0 35px 15px;
-	position: relative;
+    position: relative;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-	width: 120px;
+    float: left;
+    height: 35px;
+    margin: 20px 0 35px 60px;
+    width: 120px;
 }
 #content form input[type="submit"]:hover {
 	background: rgb(254,193,81);
@@ -234,6 +234,17 @@ form:after {
 	background: linear-gradient(top,  rgba(254,193,81,1) 0%,rgba(254,231,154,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec151', endColorstr='#fee79a',GradientType=0 );
 }
+
+
+#registerLink
+{
+    float: right;
+    height: 35px;
+    margin: 20px 60px 35px 0px;
+    width: 120px;
+    border-radius: 30px;
+}
+
 .button {
 	background: rgb(247,249,250);
 	background: -moz-linear-gradient(top,  rgba(247,249,250,1) 0%, rgba(240,240,240,1) 100%);
@@ -272,8 +283,8 @@ form:after {
 	color: #00aeef;
 }
 
-
-#content form div a
+/*
+#content form div a,
 {
 	color: #fff;
     float: right;
@@ -281,9 +292,9 @@ form:after {
     margin: 20px 15px 0 0;
     <!--text-decoration: underline;-->
 }
-
+*/
 #content form div a span,
-#registerLink {
+{
     display: block;
 	padding: 10px 20px;
 	<!-- background: #0f7c67;-->
@@ -301,18 +312,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 	transition: transform 0.3s;
 }
 
-
+/*
 #content form div a:hover,
-#registerLink {
+ {
     font-weight: 200;
     text-decoration: none;
     background: #fff;
     color:#000000;
     
 }
+*/
 
 #content form div a:hover span,
-#registerLink {
+{
     display: block;
 	padding: 10px 20px;
     
