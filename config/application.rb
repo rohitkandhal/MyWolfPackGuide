@@ -19,6 +19,7 @@ module MyWolfPackGuide
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+#=begin
     config.after_initialize do
       if(User.find_by_user_name("admin").nil?)
         @admin_user=User.new
@@ -29,5 +30,6 @@ module MyWolfPackGuide
         @admin_user.save!
       end
     end
+#=end
   end
 end
