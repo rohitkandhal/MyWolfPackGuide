@@ -1,9 +1,25 @@
-<h1>New user registration</h1>
-<%= form_tag do %>
-<p><label>UserName</label><%= text_field_tag  'new_user_name' %></p>
-<p><label>Password</label><%= password_field_tag  'new_user_password' %></p>
-<p><label>Confirm Password</label><%= password_field_tag  'new_user_confirm' %></p>
-<p><label>Email address</label><%= text_field_tag  'new_user_email' %></p>
-<p><%= submit_tag 'Register' %></p>
-<% end %>
+<div class="container">
+  <section id="content">
+    <%= form_tag do%>
+        <h1 class="surroundLine">New User Registration</h1>
+        <div>
+          <%= text_field_tag 'new_user_name', nil, :required => true, :placeholder => "User Name"%>
+        </div>
+        <div>
+          <%= password_field_tag 'new_user_password', nil, :required => true, :placeholder => "Password" %>
+        </div>
+        <div>
+          <%= password_field_tag 'new_user_confirm', nil, :required => true, :placeholder => "Confirm Password" %>
+        </div>
+        <div>
+          <%= text_field_tag 'new_user_email', nil, :required => true, :placeholder => "E-mail" %>
+        </div>
+        <div class="row">
+          <%= submit_tag 'Register', :class => "btn btn-primary footerButton", :id => "newUserRegisterBtn"%>
+          <%= link_to "Cancel", "/", :class => "btn btn-default footerButton" %>
+        </div>
+    <% end %> <!-- form -->
+  </section><!-- content -->
+</div><!-- container -->
+
 
