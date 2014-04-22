@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%- if(!session[:uid].nil?) %>
+	<%= link_to 'Logout', {:action => 'logout'} %>
+<%- end %>
 <% if !flash[:error].nil? -%>
     <p class='error'><%=h flash[:error] %></p>
 <% end -%>

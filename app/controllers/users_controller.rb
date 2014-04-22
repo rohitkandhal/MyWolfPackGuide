@@ -16,9 +16,10 @@ class UsersController < ApplicationController
   
   def require_login
     puts "Goes into require_login"
-    if(session[:uid])
+    if(session[:uid].nil?)
       puts "was nil"
-      return nil
+    flash[:error]="Not authenticated to view resource"   
+    redirect_to '/'
     else
       puts "was not null"
       return true
@@ -30,7 +31,8 @@ class UsersController < ApplicationController
 
   def logout
     session[:uid]=nil
-    # dump all the data     
+    # dump all the data  
+    flash[:notice]="Successfully Logged out"   
     redirect_to '/'
   end
 
@@ -64,10 +66,10 @@ class UsersController < ApplicationController
 				# redirect to home_page with session [:name]
 				if(@user_entry.user_type=="A")
 					#redirect to admin home page
-          session[:uid]=user_entry.id
+          session[:uid]=@user_entry.id
 					redirect_to '/admin_home'
 				else
-          session[:uid]=user_entry.id
+          session[:uid]=@user_entry.id
 					session[:user_name]=@user_entry.user_name
 					redirect_to '/home_page'
 				end				
