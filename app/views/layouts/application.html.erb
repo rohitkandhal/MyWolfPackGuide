@@ -9,12 +9,6 @@
 </head>
 <body>
 
-<% if !flash[:error].nil? -%>
-    <p class='error'><%=h flash[:error] %></p>
-<% end -%>
-<% if !flash[:notice].nil? -%>
-    <p class='notice'><%=h flash[:notice] %></p>
-<% end -%>
 
 <%= yield %>
 
