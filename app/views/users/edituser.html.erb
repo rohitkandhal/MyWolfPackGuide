@@ -1,5 +1,5 @@
 <h1>Edit Profile Page</h1>
-<%= form_for(@User_edit, :url=>{:action => 'updateuser',:id=>@User_edit.id}, :method => :POST) do |f| %>
+<%= form_for(@User_edit, :url=>{:action => 'updateuser',:id=>session[:uid]}, :method => :POST) do |f| %>
 
     <%= f.label :name %>
     <%= text_field_tag :name, @User_edit.user_name %>  <br>

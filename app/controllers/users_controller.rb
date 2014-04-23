@@ -67,7 +67,7 @@ class UsersController < ApplicationController
           session[:uid]=user_entry.id
 					redirect_to '/admin_home'
 				else
-          session[:uid]=user_entry.id
+          session[:uid]=@user_entry.id
 					session[:user_name]=@user_entry.user_name
 					redirect_to '/home_page'
 				end				
@@ -125,7 +125,7 @@ class UsersController < ApplicationController
   end
 
   def edituser
-    #@User_edit=User.first
+    @User_edit=User.find(session[:uid])
 
   end
   def updateuser
