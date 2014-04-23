@@ -5,7 +5,7 @@ require 'gcal4ruby'
 
 class UsersController < ApplicationController
 
-  before_action :require_login , :except => [:login]
+  before_action :require_login , :except => [:login, :new]
   before_action :login_check , :only => [:login]
 
   private
