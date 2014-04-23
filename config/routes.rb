@@ -12,6 +12,8 @@ MyWolfPackGuide::Application.routes.draw do
 
   get '/home_page' => 'users#home_page'
 
+  get 'users/logout' => 'users#logout'
+
   get '/admin_home' => 'users#admin_home'
   get 'users/Delete'  => 'users#Delete'
   get 'users/Edit' => 'users#Edit'
