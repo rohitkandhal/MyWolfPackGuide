@@ -1,19 +1,88 @@
 <div class="container-fluid">
-  <div class="container text-center">
+  <div class="text-center">
     <h1>Admin Home</h1>
   </div>
-  <section class="content box ">
+  <section class="content">
+    <div class="box">
     <div class="box-header">
       Calendars Management
     </div>
     <div class="box-content">
       <div class="content-inner">
         <fieldset>
-          <div class="row">
-
+          <div class="row-fluid section-row">
+            <table class="table center-align-header table-stripped table-bordered table-hover table-condensed ">
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Calendar Name
+                </th>
+                <th>
+                  Calendar ID
+                </th>
+                <th>
+                  Action 1
+                </th>
+                <th>
+                  Action 2
+                </th>
+              </tr>
+              <% @cal.each do |currCal| %>
+                  <tr>
+                    <td><%= currCal.id %></td>
+                    <td><%= currCal.name %></td>
+                    <td><%= currCal.Calid %></td>
+                    <% val=Category.find(currCal.category_id) %>
+                    <td><%= val.name %></td>
+                    <td><%= link_to 'Delete', {:action => 'Delete', :id => car.id}, :confirm => "Are you sure you want to delete this Calendar?" %></td>
+                    <td><%= link_to 'Edit', {:action => 'Edit', :id => car.id} %></td>
+                  </tr>
+              <% end %>
+            </table>
           </div>
         </fieldset>
       </div>
+    </div>
+    </div>
+
+    <div class="box">
+    <div class="box-header">
+      Category Management
+    </div>
+    <div class="box-content">
+      <div class="content-inner">
+        <fieldset>
+          <div class="row-fluid section-row">
+            <table class="table center-align-header table-stripped table-bordered table-hover table-condensed ">
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Category
+                </th>
+                <th>
+                  Action 1
+                </th>
+                <th>
+                  Action 2
+                </th>
+              </tr>
+              <% @cat.each do |currCat| %>
+                  <tr>
+                    <td><%= currCat.id %></td>
+                    <td><%= currCat.name %></td>
+                    <td><%= link_to 'Delete', {:action => 'delete', :id => currCat.id}, :confirm => "Are you sure you want to delete this Calendar?" %></td>
+                    <td><%= link_to 'Edit', {:action => 'edit', :id => currCat.id} %></td>
+                  </tr>
+              <% end %>
+            </table>
+          </div>
+        </fieldset>
+      </div>
+    </div>
     </div>
   </section>
 </div>

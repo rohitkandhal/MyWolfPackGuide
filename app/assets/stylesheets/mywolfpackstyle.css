@@ -234,6 +234,8 @@ h1.surroundLine:before{
 /* BOX */
 .box{
     margin-bottom:20px !important;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .box-header{
@@ -256,6 +258,8 @@ h1.surroundLine:before{
 
     font: 14px/1.4 Helvetica,arial,freesans,clean,sans-serif;
     margin: 0 5px 0 5px;
+    text-align: left;
+    font-weight: bold;
 }
 
 .box-content{
@@ -264,4 +268,15 @@ h1.surroundLine:before{
     background: #fff;
     min-height:10px;
     margin: 0 5px 0 5px;
+}
+
+.center-align-header td,th
+{
+    text-align: center;
+}
+.section-row {
+    margin: 6px 10px 6px 10px ;
+}
+.content-inner{
+    align-content: center;
 }
