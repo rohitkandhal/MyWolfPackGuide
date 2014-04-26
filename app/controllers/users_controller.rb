@@ -114,6 +114,8 @@ class UsersController < ApplicationController
 				@user_new.password=params[:new_user_password]
 				@user_new.user_type="N"
 				@user_new.email=params[:new_user_email]
+        @user_new.department=params[:all_val]
+        @user_new.user_interest=params[:user_interest]
 				if(@user_new.save!)
 					flash[:notice]="User successfully registered"					
 			 	else
@@ -261,7 +263,10 @@ class UsersController < ApplicationController
   end
 
   def delete
-    Calendar.find_by_category_id(params[:id]).destroy
+    if Calendar.find_by_category_id(params[:id])
+      Calendar.find_by_category_id(params[:id]).destroy
+    end
+
     Category.find(params[:id]).destroy
     #Calendar.save
     flash[:success] = "Category deleted."
@@ -272,6 +277,13 @@ class UsersController < ApplicationController
   def Savec
     @Category1=Category.new
     @Category1.name=params[:name1]
+    if(params[:dept])
+      @Category1.is_dept=params[:dept]
+    else
+      @Category1.is_dept=params[:dept1]
+    end
+
+    @Category1.is_dept=params[:dept]
     if(@Category1.save!)
       flash[:notice]="Category successfully added"
     else

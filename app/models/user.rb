@@ -1,7 +1,7 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
 include BCrypt
-	
+	serialize :user_interest
 	def password
 		@password ||= Password.new(pwd)
 	end

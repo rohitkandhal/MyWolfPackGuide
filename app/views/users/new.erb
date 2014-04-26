@@ -4,6 +4,17 @@
 <p><label>Password</label><%= password_field_tag  'new_user_password' %></p>
 <p><label>Confirm Password</label><%= password_field_tag  'new_user_confirm' %></p>
 <p><label>Email address</label><%= text_field_tag  'new_user_email' %></p>
+<% @list=Category.where(is_dept: 't') %>
+<% options = options_from_collection_for_select(@list, 'id', 'name') %>
+<p><label>Department</label>
+    <%= select_tag :all_val,  options %> </p>
+    <div class="field">
+      <label>Interests</label><br />
+      <% for category in Category.all %>
+          <%= check_box_tag 'user_interest[]', category.id %>
+          <%= label_tag dom_id(category), category.name, :class => "check_box_label" %> <br>
+      <% end %>
+    </div>
 <p><%= submit_tag 'Register' %></p>
 <% end %>
 

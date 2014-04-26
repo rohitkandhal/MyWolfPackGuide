@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409040900) do
+ActiveRecord::Schema.define(version: 20140425012223) do
 
   create_table "calendars", force: true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140409040900) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_dept"
   end
 
   create_table "rsvps", force: true do |t|
@@ -36,12 +37,14 @@ ActiveRecord::Schema.define(version: 20140409040900) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "user_name",  null: false
-    t.string   "pwd",        null: false
+    t.string   "user_name",     null: false
+    t.string   "pwd",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_type"
     t.string   "email"
+    t.text     "user_interest"
+    t.string   "department"
   end
 
 end
