@@ -73,6 +73,8 @@
 </table>
 <%= form_tag ('/users/Savec') do %>
     <%= label_tag :name %>
-    <%= text_field_tag :name1, 'Category Name' %>  <br>
+    <%= text_field_tag :name1, 'Category Name' %><br>
+    <%= label_tag :department %>
+    <%= radio_button_tag 'dept', true%> Yes<br>
     <%= submit_tag "Save changes" %>
 <% end %>

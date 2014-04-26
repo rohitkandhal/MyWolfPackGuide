@@ -5,7 +5,7 @@ require 'gcal4ruby'
 
 class UsersController < ApplicationController
 
-  before_action :require_login , :except => [:login]
+  before_action :require_login , :except => [:login, :new]
   before_action :login_check , :only => [:login]
 
   private
@@ -16,9 +16,10 @@ class UsersController < ApplicationController
   
   def require_login
     puts "Goes into require_login"
-    if(session[:uid])
+    if(session[:uid].nil?)
       puts "was nil"
-      return nil
+    flash[:error]="Not authenticated to view resource"   
+    redirect_to '/'
     else
       puts "was not null"
       return true
@@ -30,7 +31,8 @@ class UsersController < ApplicationController
 
   def logout
     session[:uid]=nil
-    # dump all the data     
+    # dump all the data  
+    flash[:notice]="Successfully Logged out"   
     redirect_to '/'
   end
 
@@ -64,10 +66,10 @@ class UsersController < ApplicationController
 				# redirect to home_page with session [:name]
 				if(@user_entry.user_type=="A")
 					#redirect to admin home page
-          session[:uid]=user_entry.id
+          session[:uid]=@user_entry.id
 					redirect_to '/admin_home'
 				else
-          session[:uid]=user_entry.id
+          session[:uid]=@user_entry.id
 					session[:user_name]=@user_entry.user_name
 					redirect_to '/home_page'
 				end				
@@ -112,6 +114,8 @@ class UsersController < ApplicationController
 				@user_new.password=params[:new_user_password]
 				@user_new.user_type="N"
 				@user_new.email=params[:new_user_email]
+        @user_new.department=params[:all_val]
+        @user_new.user_interest=params[:user_interest]
 				if(@user_new.save!)
 					flash[:notice]="User successfully registered"					
 			 	else
@@ -125,7 +129,7 @@ class UsersController < ApplicationController
   end
 
   def edituser
-    #@User_edit=User.first
+    @User_edit=User.find(session[:uid])
 
   end
   def updateuser
@@ -259,7 +263,10 @@ class UsersController < ApplicationController
   end
 
   def delete
-    Calendar.find_by_category_id(params[:id]).destroy
+    if Calendar.find_by_category_id(params[:id])
+      Calendar.find_by_category_id(params[:id]).destroy
+    end
+
     Category.find(params[:id]).destroy
     #Calendar.save
     flash[:success] = "Category deleted."
@@ -270,6 +277,13 @@ class UsersController < ApplicationController
   def Savec
     @Category1=Category.new
     @Category1.name=params[:name1]
+    if(params[:dept])
+      @Category1.is_dept=params[:dept]
+    else
+      @Category1.is_dept=params[:dept1]
+    end
+
+    @Category1.is_dept=params[:dept]
     if(@Category1.save!)
       flash[:notice]="Category successfully added"
     else
