@@ -1,5 +1,5 @@
 <div class="threeBoxContainer">
-  <section id="content">
+  <section class="content width400">
     <%= form_tag do%>
         <h1 class="surroundLine">New User Registration</h1>
         <div>
@@ -14,6 +14,17 @@
         <div>
           <%= text_field_tag 'new_user_email', nil, :required => true, :placeholder => "E-mail" %>
         </div>
+        <% @list=Category.where(is_dept: 't') %>
+        <% options = options_from_collection_for_select(@list, 'id', 'name') %>
+        <p><label>Department</label>
+    -    <%= select_tag :all_val,  options %> </p>
+            <div class="field">
+    -      <label>Interests</label><br />
+    -      <% for category in Category.all %>
+                  <%= check_box_tag 'user_interest[]', category.id %>
+                  <%= label_tag dom_id(category), category.name, :class => "check_box_label" %> <br>
+              <% end %>
+    -    </div>
         <div class="row">
           <%= submit_tag 'Register', :class => "btn btn-primary footerButton", :id => "newUserRegisterBtn"%>
           <%= link_to "Cancel", "/", :class => "btn btn-default footerButton" %>
