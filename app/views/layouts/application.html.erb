@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MyWolfPackGuide</title>
+  <title>My Wolfpack Guide</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "mywolfpackstyle" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,12 +11,6 @@
 <%- if(!session[:uid].nil?) %>
 	<%= link_to 'Logout', {:action => 'logout'} %>
 <%- end %>
-<% if !flash[:error].nil? -%>
-    <p class='error'><%=h flash[:error] %></p>
-<% end -%>
-<% if !flash[:notice].nil? -%>
-    <p class='notice'><%=h flash[:notice] %></p>
-<% end -%>
 
 <%= yield %>
 

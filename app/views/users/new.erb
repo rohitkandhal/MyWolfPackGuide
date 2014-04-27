@@ -1,20 +1,36 @@
-<h1>New user registration</h1>
-<%= form_tag do %>
-<p><label>UserName</label><%= text_field_tag  'new_user_name' %></p>
-<p><label>Password</label><%= password_field_tag  'new_user_password' %></p>
-<p><label>Confirm Password</label><%= password_field_tag  'new_user_confirm' %></p>
-<p><label>Email address</label><%= text_field_tag  'new_user_email' %></p>
-<% @list=Category.where(is_dept: 't') %>
-<% options = options_from_collection_for_select(@list, 'id', 'name') %>
-<p><label>Department</label>
-    <%= select_tag :all_val,  options %> </p>
-    <div class="field">
-      <label>Interests</label><br />
-      <% for category in Category.all %>
-          <%= check_box_tag 'user_interest[]', category.id %>
-          <%= label_tag dom_id(category), category.name, :class => "check_box_label" %> <br>
-      <% end %>
-    </div>
-<p><%= submit_tag 'Register' %></p>
-<% end %>
+<div class="threeBoxContainer">
+  <section class="content width400">
+    <%= form_tag do%>
+        <h1 class="surroundLine">New User Registration</h1>
+        <div>
+          <%= text_field_tag 'new_user_name', nil, :required => true, :placeholder => "User Name"%>
+        </div>
+        <div>
+          <%= password_field_tag 'new_user_password', nil, :required => true, :placeholder => "Password" %>
+        </div>
+        <div>
+          <%= password_field_tag 'new_user_confirm', nil, :required => true, :placeholder => "Confirm Password" %>
+        </div>
+        <div>
+          <%= text_field_tag 'new_user_email', nil, :required => true, :placeholder => "E-mail" %>
+        </div>
+        <% @list=Category.where(is_dept: 't') %>
+        <% options = options_from_collection_for_select(@list, 'id', 'name') %>
+        <p><label>Department</label>
+    -    <%= select_tag :all_val,  options %> </p>
+            <div class="field">
+    -      <label>Interests</label><br />
+    -      <% for category in Category.all %>
+                  <%= check_box_tag 'user_interest[]', category.id %>
+                  <%= label_tag dom_id(category), category.name, :class => "check_box_label" %> <br>
+              <% end %>
+    -    </div>
+        <div class="row">
+          <%= submit_tag 'Register', :class => "btn btn-primary footerButton", :id => "newUserRegisterBtn"%>
+          <%= link_to "Cancel", "/", :class => "btn btn-default footerButton" %>
+        </div>
+    <% end %> <!-- form -->
+  </section><!-- content -->
+</div><!-- container -->
+
 
