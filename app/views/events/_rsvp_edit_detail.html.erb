@@ -1,1 +1,10 @@
-<h1>RSVP partial</h2>
+
+<div>
+<h3>RSVP Info</h3>	
+<%- if @rsvp_button_flag %>
+<%= button_to "Event RSVP",events_detail_path%>
+<% else %>
+<%= button_to "Event RSVP",disabled: true%>
+<%end %>
+</div>
+

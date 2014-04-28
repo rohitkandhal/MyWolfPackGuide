@@ -36,7 +36,7 @@ MyWolfPackGuide::Application.routes.draw do
 
 
   get 'events/detail' => 'events#event_detail'
-  #post 'events/detail' => 'events#event_detail'
+  post 'events/detail' => 'events#event_detail'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
