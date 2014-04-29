@@ -1,1 +1,23 @@
-<h1>RSVP partial</h2>
+
+<div>
+<h3>RSVP Info</h3>	
+	<%- if @rsvp_button_flag %>
+		<%= form_tag ('/events/detail') do %>
+		  <%= submit_tag "Event RSVP", :eid=>params[:eid] %>
+		<% end %>
+	<% else %>
+		<%= submit_tag "Event RSVP",disabled: true%>
+	<% end %>
+</div>
+
+<div>
+	<%- if !@user_names.nil? %>
+	<h4>RSVP'd User list</h4>
+		<% @user_names.each do |user| %>
+			<p><%= user.user_name %></p>
+		<% end %>
+	<% else %>
+	<h4>No Users RSVP'd</h4>
+	<% end %>
+</div>
+
