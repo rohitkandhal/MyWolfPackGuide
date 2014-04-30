@@ -36,6 +36,8 @@ MyWolfPackGuide::Application.routes.draw do
 
   get "category/edit" => 'category#edit'
   post 'category/updateCategory' => 'category#updateCategory'
+  get 'category/deleteConfirm' => 'category#deleteConfirm'
+  post 'category/delete' => 'category#delete'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

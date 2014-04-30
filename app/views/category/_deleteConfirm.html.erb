@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Delete Category</h3>
+    </div>
+
+    <%= form_for(@CurrentCat, :url=>{:action => 'delete', :controller => 'category', :id=>@CurrentCat.id}, :method => :POST, :class => 'form-horizontal') do |f| %>
+        <div class="modal-body">
+          Do you want to delete category: <%= f.label @CurrentCat.name%>?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-danger" type="submit">Delete</button>
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+
+

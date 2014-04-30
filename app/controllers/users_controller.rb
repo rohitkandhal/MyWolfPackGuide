@@ -243,24 +243,6 @@ class UsersController < ApplicationController
     redirect_to '/admin_home'
   end
 
-  ##
-  # def edit
-  #    @Cati=Category.find(params[:id])
-  #  end
-
-
-  def delete
-    if Calendar.find_by_category_id(params[:id])
-      Calendar.find_by_category_id(params[:id]).destroy
-    end
-
-    Category.find(params[:id]).destroy
-    #Calendar.save
-    flash[:success] = "Category deleted."
-    #redirect_path_now='users/admin_home'
-    redirect_to '/admin_home'
-
-  end
 
   def Savec
     @Category1=Category.new
