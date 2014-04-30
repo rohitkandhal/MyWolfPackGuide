@@ -245,7 +245,7 @@ h1.surroundLine:before{
 }
 
 .box-header{
-    height:30px;
+    height:40px;
     color: #555;
     padding:5px 10px 5px ;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FAFAFA), color-stop(100%,#E9E9E9));

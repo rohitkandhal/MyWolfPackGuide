@@ -6,7 +6,6 @@ class CategoryController < ApplicationController
       format.html
       format.js
     end
-#    @Cati=Category.find(params[:id])
   end
 
 
@@ -41,6 +40,32 @@ class CategoryController < ApplicationController
     #Calendar.save
     flash[:success] = "Category deleted."
     #redirect_path_now='users/admin_home'
+    redirect_to '/admin_home'
+  end
+
+  #Add Category (HTTP GET)
+  def addCat
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def saveCat
+    @Category1=Category.new
+    @Category1.name=params[:catName]
+    if (params[:dept])
+      @Category1.is_dept=params[:dept]
+    else
+      @Category1.is_dept=params[:dept1]
+    end
+
+    @Category1.is_dept=params[:dept]
+    if (@Category1.save!)
+      flash[:notice]="Category successfully added"
+    else
+      flash[:error]="Something went wrong, Category addition failed"
+    end
     redirect_to '/admin_home'
   end
 end

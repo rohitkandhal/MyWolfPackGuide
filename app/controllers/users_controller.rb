@@ -243,23 +243,4 @@ class UsersController < ApplicationController
     redirect_to '/admin_home'
   end
 
-
-  def Savec
-    @Category1=Category.new
-    @Category1.name=params[:name1]
-    if (params[:dept])
-      @Category1.is_dept=params[:dept]
-    else
-      @Category1.is_dept=params[:dept1]
-    end
-
-    @Category1.is_dept=params[:dept]
-    if (@Category1.save!)
-      flash[:notice]="Category successfully added"
-    else
-      flash[:error]="Something went wrong, Category addition failed"
-    end
-    redirect_to '/admin_home'
-  end
-
 end

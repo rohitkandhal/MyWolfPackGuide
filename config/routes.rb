@@ -38,6 +38,8 @@ MyWolfPackGuide::Application.routes.draw do
   post 'category/updateCategory' => 'category#updateCategory'
   get 'category/deleteConfirm' => 'category#deleteConfirm'
   post 'category/delete' => 'category#delete'
+  get 'category/addCat' => 'category#addCat'
+  post 'category/saveCat' => 'category#saveCat'
 
   get 'events/detail' => 'events#event_detail'
   post 'events/detail' => 'events#event_detail'
