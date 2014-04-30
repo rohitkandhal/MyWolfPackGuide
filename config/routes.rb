@@ -33,6 +33,9 @@ MyWolfPackGuide::Application.routes.draw do
   post 'users/edituser' => 'users#edituser'
   get 'users/updateuser' => 'users#updateuser'
   post 'users/updateuser' => 'users#updateuser'
+
+  get "category/edit" => 'category#edit'
+  post 'category/updateCategory' => 'category#updateCategory'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

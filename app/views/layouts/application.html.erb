@@ -3,14 +3,15 @@
 <head>
   <title>My Wolfpack Guide</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag "mywolfpackstyle" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <%- if(!session[:uid].nil?) %>
-	<%= link_to 'Logout', {:action => 'logout'} %>
+	<%= link_to 'Logout', {:action => 'logout', :controller => 'users'} %>
 <%- end %>
+
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
 <%= yield %>
 
