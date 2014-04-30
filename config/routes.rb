@@ -13,7 +13,7 @@ MyWolfPackGuide::Application.routes.draw do
   get '/home_page' => 'users#home_page'
 
   get 'users/logout' => 'users#logout'
-
+  
   get '/admin_home' => 'users#admin_home'
   get 'users/Delete'  => 'users#Delete'
   get 'users/Edit' => 'users#Edit'
@@ -38,6 +38,10 @@ MyWolfPackGuide::Application.routes.draw do
   post 'category/updateCategory' => 'category#updateCategory'
   get 'category/deleteConfirm' => 'category#deleteConfirm'
   post 'category/delete' => 'category#delete'
+
+  get 'events/detail' => 'events#event_detail'
+  post 'events/detail' => 'events#event_detail'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
