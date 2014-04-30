@@ -1,0 +1,26 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Add Calendar</h3>
+    </div>
+
+    <%= form_tag('calendar/saveCal') do %>
+        <div class="modal-body">
+          <%= label_tag :name %>
+          <%= text_field_tag :name1, nil, :placeholder => 'Calendar Name' %>  <br>
+          <%= label_tag :Calid %>
+          <%= text_field_tag :Calid1, nil, :placeholder => 'Calendar ID' %>     <br>
+          <%= label_tag :category %>
+          <%= text_field_tag :category1, nil, :placeholder => 'Category' %>    <br>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Save changes</button>
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+
