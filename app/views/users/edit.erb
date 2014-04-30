@@ -1,8 +1,0 @@
-<h1>Category Edit Page</h1>
-<%= form_for(@Cati, :url=>{:action => 'updatec',:id=>@Cati.id}, :method => :POST) do |f| %>
-
-    <%= f.label :name %>
-    <%= text_field_tag :name, @Cati.name %>  <br>
-
-    <%= f.submit "Save changes" %>
-<% end %>

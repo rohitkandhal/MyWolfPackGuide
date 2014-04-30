@@ -3,7 +3,6 @@
 <head>
   <title>My Wolfpack Guide</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag "mywolfpackstyle" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,6 +10,8 @@
 <%- if(!session[:uid].nil?) %>
 	<%= link_to 'Logout', {:controller => 'users', :action => 'logout'} %>
 <%- end %>
+
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
 <%= yield %>
 

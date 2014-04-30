@@ -34,6 +34,10 @@ MyWolfPackGuide::Application.routes.draw do
   get 'users/updateuser' => 'users#updateuser'
   post 'users/updateuser' => 'users#updateuser'
 
+  get "category/edit" => 'category#edit'
+  post 'category/updateCategory' => 'category#updateCategory'
+  get 'category/deleteConfirm' => 'category#deleteConfirm'
+  post 'category/delete' => 'category#delete'
 
   get 'events/detail' => 'events#event_detail'
   post 'events/detail' => 'events#event_detail'
