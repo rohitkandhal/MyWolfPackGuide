@@ -7,7 +7,7 @@
     <div class="box">
       <div class="box-header">
         Calendars Management
-        <%= link_to 'Add Calendar', {:action => 'addCat', :controller => 'category'},
+        <%= link_to 'Add Calendar', {:action => 'addCal', :controller => 'calendar'},
                     :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window',
                     :class => "btn btn-info btn-sm pull-right" %>
       </div>
@@ -41,8 +41,8 @@
                       <% val=Category.find(currCal.category_id) %>
                       <td><%= val.name %></td>
                       <td>
-                        <%= link_to 'Edit', {:action => 'Edit', :id => currCal.id}, :class => "btn btn-primary btn-sm" %>
-                        <%= link_to 'Delete', {:action => 'Delete', :id => currCal.id}, :confirm => "Are you sure you want to delete this Calendar?", :class => "btn btn-danger btn-sm" %>
+                        <%= link_to 'Edit', {:action => 'editCal', :controller => 'calendar', :id => currCal.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-primary btn-sm" %>
+                        <%= link_to 'Delete', {:action => 'deleteConfirm', :controller => 'calendar', :id => currCal.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-danger btn-sm" %>
                       </td>
                     </tr>
                 <% end %>
