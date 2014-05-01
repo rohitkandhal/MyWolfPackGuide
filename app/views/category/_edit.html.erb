@@ -6,19 +6,18 @@
     </div>
 
     <%= form_for(@CurrentCat, :url => {:action => 'updateCategory', :controller => 'category', :id => @CurrentCat.id}, :method => :POST, :class => 'form-horizontal') do |f| %>
-        <div class="modal-body">
-          <div class="row">
-            <%= f.label :name %>
-            <%= text_field_tag :name, @CurrentCat.name %>
-          </div>
-          <div class="row">
-            <%= label_tag :department %>
-            <div class="checkbox">
-              <label>
-                <%= check_box_tag 'dept', 1, @CurrentCat.is_dept %> Yes<br>
-              </label>
-            </div>
-          </div>
+        <div class="modal-body col-lg-offset-1">
+
+          <%= f.label :name %>
+          <%= text_field_tag :name, @CurrentCat.name %>
+          <br>
+          <br>
+
+          <%= label_tag :department %>
+          <label>
+            <%= check_box_tag 'dept', 1, @CurrentCat.is_dept %> Yes<br>
+          </label>
+
         </div>
 
 
