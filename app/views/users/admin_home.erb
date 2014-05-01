@@ -9,7 +9,7 @@
         Calendars Management
         <%= link_to 'Add Calendar', {:action => 'addCal', :controller => 'calendar'},
                     :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window',
-                    :class => "btn btn-info btn-sm pull-right" %>
+                    :class => "btn btn-info btn-sm pull-right", :style => 'margin: -5px 10px' %>
       </div>
       <div class="box-content">
         <div class="content-inner">
@@ -41,8 +41,8 @@
                       <% val=Category.find(currCal.category_id) %>
                       <td><%= val.name %></td>
                       <td>
-                        <%= link_to 'Edit', {:action => 'editCal', :controller => 'calendar', :id => currCal.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-primary btn-sm" %>
-                        <%= link_to 'Delete', {:action => 'deleteConfirm', :controller => 'calendar', :id => currCal.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-danger btn-sm" %>
+                        <%= link_to 'Edit', {:action => 'editCal', :controller => 'calendar', :id => currCal.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-primary btn-xs" %>
+                        <%= link_to 'Delete', {:action => 'deleteConfirm', :controller => 'calendar', :id => currCal.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-danger btn-xs" %>
                       </td>
                     </tr>
                 <% end %>
@@ -58,7 +58,7 @@
         Category Management
         <%= link_to 'Add Category', {:action => 'addCat', :controller => 'category'},
                     :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window',
-                    :class => "btn btn-info btn-sm pull-right" %>
+                    :class => "btn btn-info btn-sm pull-right", :style => 'margin: -5px 10px' %>
       </div>
       <div class="box-content">
         <div class="content-inner">
@@ -80,8 +80,8 @@
                       <td><%= currCat.id %></td>
                       <td><%= currCat.name %></td>
                       <td>
-                        <%= link_to 'Edit', {:action => 'edit', :controller => 'category', :id => currCat.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-primary btn-sm" %>
-                        <%= link_to 'Delete', {:action => 'deleteConfirm', :controller => 'category', :id => currCat.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-danger btn-sm" %>
+                        <%= link_to 'Edit', {:action => 'edit', :controller => 'category', :id => currCat.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-primary btn-xs" %>
+                        <%= link_to 'Delete', {:action => 'deleteConfirm', :controller => 'category', :id => currCat.id}, :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window', :class => "btn btn-danger btn-xs" %>
                       </td>
                     </tr>
                 <% end %>

@@ -10,10 +10,12 @@ class CategoryController < ApplicationController
 
 
   def updateCategory
-    @call=Category.find(params[:id])
+    @originalCat=Category.find(params[:id])
     flash[:confirm]="Are you sure you want to edit this category?"
-    @call.name=params[:name]
-    if (@call.save!)
+    @originalCat.name=params[:name]
+    @originalCat.is_dept = params[:dept]
+
+    if (@originalCat.save!)
       flash[:notice]="Category successfully edited"
     else
       flash[:error]="Something went wrong, Category edition failed"

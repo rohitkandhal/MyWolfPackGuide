@@ -5,17 +5,27 @@
       <h3 id="myModalLabel">Edit Category</h3>
     </div>
 
-    <%= form_for(@CurrentCat, :url=>{:action => 'updateCategory', :controller => 'category', :id=>@CurrentCat.id}, :method => :POST, :class => 'form-horizontal') do |f| %>
-    <div class="modal-body">
-          <%= f.label :name %>
-          <%= text_field_tag :name, @CurrentCat.name %>
-    </div>
+    <%= form_for(@CurrentCat, :url => {:action => 'updateCategory', :controller => 'category', :id => @CurrentCat.id}, :method => :POST, :class => 'form-horizontal') do |f| %>
+        <div class="modal-body">
+          <div class="row">
+            <%= f.label :name %>
+            <%= text_field_tag :name, @CurrentCat.name %>
+          </div>
+          <div class="row">
+            <%= label_tag :department %>
+            <div class="checkbox">
+              <label>
+                <%= check_box_tag 'dept', 1, @CurrentCat.is_dept %> Yes<br>
+              </label>
+            </div>
+          </div>
+        </div>
 
 
-    <div class="modal-footer">
-      <button class="btn btn-primary" type="submit">Save changes</button>
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Save changes</button>
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
 
     <% end %>
   </div>
