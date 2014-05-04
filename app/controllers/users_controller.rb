@@ -114,7 +114,7 @@ class UsersController < ApplicationController
         @user_new.password=params[:new_user_password]
         @user_new.user_type="N"
         @user_new.email=params[:new_user_email]
-        @user_new.department=params[:all_val]
+        @user_new.department=params[:selected_department]
         @user_new.user_interest=params[:user_interest]
         if (@user_new.save!)
           flash[:notice]="User successfully registered"

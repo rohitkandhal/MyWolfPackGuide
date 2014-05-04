@@ -1,9 +1,16 @@
-<div class="threeBoxContainer">
-  <section class="content width400">
-    <%= form_tag do%>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.multiselect').multiselect();
+    });
+</script>
+
+<div class="threeBoxContainer width500">
+  <section class="content ">
+    <%= form_tag do %>
         <h1 class="surroundLine">New User Registration</h1>
+        <%= render 'layouts/flash_messages' %>
         <div>
-          <%= text_field_tag 'new_user_name', nil, :required => true, :placeholder => "User Name"%>
+          <%= text_field_tag 'new_user_name', nil, :required => true, :placeholder => "User Name" %>
         </div>
         <div>
           <%= password_field_tag 'new_user_password', nil, :required => true, :placeholder => "Password" %>
@@ -14,23 +21,38 @@
         <div>
           <%= text_field_tag 'new_user_email', nil, :required => true, :placeholder => "E-mail" %>
         </div>
-        <% @list=Category.where(is_dept: 't') %>
-        <% options = options_from_collection_for_select(@list, 'id', 'name') %>
-        <p><label>Department</label>
-    -    <%= select_tag :all_val,  options %> </p>
-            <div class="field">
-    -      <label>Interests</label><br />
-    -      <% for category in Category.all %>
-                  <%= check_box_tag 'user_interest[]', category.id %>
-                  <%= label_tag dom_id(category), category.name, :class => "check_box_label" %> <br>
-              <% end %>
-    -    </div>
+
         <div class="row">
-          <%= submit_tag 'Register', :class => "btn btn-primary footerButton", :id => "newUserRegisterBtn"%>
+          <div class="col-md-offset-2">
+            <label class="pull-left">Department</label>
+            <div class="inline-drop-down col-md-7">
+              <% @list=Category.where(is_dept: 't') %>
+              <% options = options_from_collection_for_select(@list, 'id', 'name') %>
+              <%= select_tag :selected_department, options, :class => 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-offset-2">
+            <label class="pull-left">Interests</label>
+
+            <div class="inline-drop-down col-md-7 ">
+              <%= select_tag 'user_interest[]',
+                             options_from_collection_for_select(Category.all, :id, :name),
+                             :class => 'multiselect',
+                             'multiple' => 'multiple' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <%= submit_tag 'Register', :class => "btn btn-primary footerButton", :id => "newUserRegisterBtn" %>
           <%= link_to "Cancel", "/", :class => "btn btn-default footerButton" %>
         </div>
     <% end %> <!-- form -->
-  </section><!-- content -->
+  </section>
+  <!-- content -->
 </div><!-- container -->
 
 
